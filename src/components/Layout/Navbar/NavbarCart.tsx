@@ -5,7 +5,7 @@ import CartNumberIndicator from "./CartNumberIndicator";
 
 const NavbarCart = () => {
   return (
-    <a className="relative flex justify-center px-3 py-2 text-4xl text-center bg-white rounded-md shadow-md shadow-gray-300 w-14">
+    <a className="relative flex items-center justify-center px-3 py-2 text-3xl text-center bg-white rounded-md shadow-md md:text-4xl shadow-gray-300 w-14">
       <BsCart3 />
       <CartNumberIndicator />
     </a>
