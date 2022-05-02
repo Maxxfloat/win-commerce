@@ -9,17 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chec/commerce.js": "^2.8.0",
     "axios": "^0.26.1",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1",
-    "react-query": "^3.35.0"
+    "react-query": "^3.38.0",
+    "swiper": "^8.1.1"
   },
   "devDependencies": {
+    "@types/chec__commerce.js": "^2.8.5",
     "@types/node": "17.0.25",
     "@types/react": "18.0.5",
     "@types/react-dom": "18.0.1",
+    "@types/swiper": "^6.0.0",
     "autoprefixer": "^10.4.4",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
