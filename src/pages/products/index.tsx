@@ -3,15 +3,23 @@ import ProductCard from "components/Products/ProductCard";
 import { getProducts } from "utils/getData";
 import qs from "qs";
 import { GetStaticProps } from "next/types";
+import { useRouter } from "next/router";
 
 const Products = () => {
-  const filters: string = qs.stringify(
+  const { category } = useRouter().query;
+  const filters = qs.stringify(
     {
       populate: "*",
+      filters: {
+        category: {
+          name: {
+            $eq: category,
+          },
+        },
+      },
     },
     { encodeValuesOnly: true }
   );
-
   const { data }: { data: any[] | undefined } = useQuery(
     ["products", filters],
     () => getProducts(filters),
@@ -22,7 +30,7 @@ const Products = () => {
     <main>
       <article></article>
       <section>
-        <span>All Products</span>
+        <span className="ml-8 text-4xl font-bold text-red-600">Products</span>
         <article className="grid grid-cols-1 my-6 md:grid-cols-3 lg:grid-cols-5">
           {data?.map((product) => {
             const info = product.attributes;
@@ -54,10 +62,28 @@ const Products = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  // let query: string;
+  // if (params?.category) {
+  const query = qs.stringify(
+    {
+      populate: "*",
+      filters: {
+        category: {
+          name: {
+            $eq: params?.category,
+          },
+        },
+      },
+    },
+    { encodeValuesOnly: true }
+  );
+  // }
   const queryClient = new QueryClient();
   //   await queryClient.prefetchQuery("products", () => getProducts());
-  await queryClient.prefetchQuery("products", () => getProducts());
+  await queryClient.prefetchQuery(["products", query], () =>
+    getProducts(query)
+  );
   return {
     props: { dehydratedState: dehydrate(queryClient) },
     revalidate: 60 * 60,

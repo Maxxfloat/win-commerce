@@ -17,6 +17,9 @@ const CategorySection = () => {
   return (
     <>
       {categories?.map((category, index) => {
+        if (index >= 3) {
+          return;
+        }
         const info = category.attributes;
         const imageUrl = info.thumbnail?.data?.attributes.formats.thumbnail.url;
         return (

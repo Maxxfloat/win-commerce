@@ -1,7 +1,11 @@
 import { FC } from "react";
 import Link from "next/link";
 
-const SidebarLink: FC<{ title: string; link: string }> = ({ title, link }) => {
+const SidebarLink: FC<{
+  title: string;
+  link: { pathname: string; query?: { category: string } };
+  slug?: string;
+}> = ({ title, link, slug }) => {
   return (
     <li className="w-full">
       <Link href={link}>

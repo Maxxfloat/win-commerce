@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 
 const instance: AxiosInstance = axios.create({
-  baseURL: "http://localhost:1337/api",
+  baseURL: "https://nodejs-e7vx44.chabk.ir/api",
 });
 
 export default instance;

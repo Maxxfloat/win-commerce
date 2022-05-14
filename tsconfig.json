@@ -16,6 +16,11 @@
     "incremental": true,
     "baseUrl": "./src"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/components/Home/SpecialOffer"
+  ],
   "exclude": ["node_modules"]
 }

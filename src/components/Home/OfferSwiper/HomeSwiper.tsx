@@ -32,18 +32,18 @@ const HomeSwiper = () => {
       >
         {isSuccess &&
           data.map((product: { attributes: any }) => {
-            const detail = product.attributes;
-            const imageUrl = detail.image.data.attributes.formats.thumbnail.url;
+            const info = product.attributes;
+            const imageUrl = info.image.data.attributes.formats.thumbnail.url;
             return (
-              <SwiperSlide key={detail.name}>
+              <SwiperSlide key={info.name}>
                 <ProductCard
-                  href={`/products/${detail.name}`}
-                  alt={detail.name}
-                  prevPrice={detail.price}
+                  href={`/products/${info.name}`}
+                  alt={info.name}
+                  prevPrice={info.price}
                   offPercent={5}
                   src={imageUrl}
                   totalPrice={Number(
-                    (detail.price - (detail.price * 5) / 100).toFixed(2)
+                    (info.price - (info.price * 5) / 100).toFixed(2)
                   )}
                 />
               </SwiperSlide>

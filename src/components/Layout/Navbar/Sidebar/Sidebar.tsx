@@ -48,7 +48,7 @@ const Sidebar: FC<SidebarType> = ({ sidebarOpen, setSidebarOpen }) => {
                   <SidebarLink
                     key={page.title}
                     title={page.title}
-                    link={page.address}
+                    link={{ pathname: page.address }}
                   />
                 );
               })}
@@ -63,7 +63,10 @@ const Sidebar: FC<SidebarType> = ({ sidebarOpen, setSidebarOpen }) => {
                   <SidebarLink
                     key={info.name}
                     title={info.name}
-                    link={`/products/${info.slug}`}
+                    link={{
+                      pathname: `/products`,
+                      query: { category: info.slug },
+                    }}
                   />
                 );
               })}
