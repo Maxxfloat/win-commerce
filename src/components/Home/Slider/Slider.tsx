@@ -5,12 +5,12 @@ import SliderNavBtns from "./SliderNavBtns";
 import { useQuery } from "react-query";
 import Image from "next/image";
 import { getSlider } from "utils/getData";
+import Link from "next/link";
 
 const Slider = () => {
   const { data }: { data: any[] | undefined } = useQuery("sliders", getSlider, {
     staleTime: 5 * 60 * 1000,
   });
-  console.log(data);
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -25,18 +25,16 @@ const Slider = () => {
       </div>
       {data?.map((slide) => (
         <SwiperSlide key={slide.attributes.name}>
-          <div
-            className="relative h-64 bg-contain lg:h-80"
-            style={{
-              backgroundImage: `url(${slide.attributes.img_name.data.attributes.url})`,
-            }}
+          <Link
+            href={`/products/${slide.attributes.product.data.attributes.slug}`}
           >
-            {/* <Image
-              src={slide.attributes.img_name.data.attributes.url}
-              alt={slide.attributes.name}
-              layout="fill"
-            /> */}
-          </div>
+            <a
+              className="relative block h-64 bg-contain lg:h-80"
+              style={{
+                backgroundImage: `url(${slide.attributes.img_name.data.attributes.url})`,
+              }}
+            ></a>
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>
