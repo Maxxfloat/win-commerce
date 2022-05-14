@@ -2,24 +2,80 @@ import Link from "next/link";
 import { FC, useState } from "react";
 import { BsInstagram } from "react-icons/bs";
 import { GrLinkedin } from "react-icons/gr";
+import { useQuery } from "react-query";
 import { SidebarType } from "types/UseStateTypes";
 
+import get from "modules/get";
+import SidebarLink from "./SidebarLink";
+import pages from "utils/pages";
+import Logo from "components/Layout/Logo";
+import SocialMediaContact from "components/SocialMediaContact";
+import socialMediaInfo from "utils/socialMediaInfo";
+import { getCategories } from "utils/getData";
+
+// const getCategories = () => {
+//   return get("/categories").then((res) => res.data);
+// };
 const Sidebar: FC<SidebarType> = ({ sidebarOpen, setSidebarOpen }) => {
+  const { data }: { data: any[] | undefined } = useQuery(
+    "categories",
+    getCategories
+  );
   return (
-    <div
-      className="fixed right-0 z-10 flex w-full transition-all duration-300"
-      style={!sidebarOpen ? { right: "100%", background: "none" } : {}}
-    >
-      <div className="flex flex-col items-center w-10/12 h-screen overflow-hidden bg-gray-300 shadow-lg shadow-gray-400 lg:hidden ">
-        <ul className="flex flex-col items-center w-full"></ul>
-        {/* <SocialMendias /> */}
-      </div>
+    <div className="absolute z-10 lg:hidden">
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-10 h-screen bg-gray-300 opacity-50"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
       <div
-        className="w-2/12"
-        onClick={function () {
-          setSidebarOpen((v) => !v);
-        }}
-      />
+        className="fixed top-0 bottom-0 z-20 flex w-9/12 transition-all duration-300 -left-full "
+        style={sidebarOpen ? { left: 0 } : {}}
+      >
+        <div
+          dir="rtl"
+          className="flex flex-col items-center w-full overflow-y-auto bg-white shadow-lg shadow-gray-400 "
+        >
+          <div dir="ltr" className="w-full p-10 sm:pl-16 ">
+            <div className="flex justify-center">
+              <Logo />
+            </div>
+            <p className="text-3xl font-bold text-gray-500 my-7">Pages</p>
+            <ul className="flex flex-col w-full gap-3 sm:w-1/2">
+              {pages.map((page) => {
+                return (
+                  <SidebarLink
+                    key={page.title}
+                    title={page.title}
+                    link={page.address}
+                  />
+                );
+              })}
+            </ul>
+            <p className="mt-16 text-3xl font-bold text-gray-500 mb-7">
+              Categories
+            </p>
+            <ul className="flex flex-col w-full gap-3 sm:w-1/2">
+              {data?.map((category) => {
+                const info = category.attributes;
+                return (
+                  <SidebarLink
+                    key={info.name}
+                    title={info.name}
+                    link={`/products/${info.slug}`}
+                  />
+                );
+              })}
+            </ul>
+            <div className="flex justify-center gap-5 mt-20 mb-10">
+              {socialMediaInfo.map((item) => {
+                return <SocialMediaContact key={item.url} {...item} />;
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
