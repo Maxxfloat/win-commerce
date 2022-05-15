@@ -1,6 +1,7 @@
-import nookies from "nookies";
+import { destroyCookie } from "nookies";
+
 const logout = () => {
-  nookies.destroy(null, "accessToken");
+  destroyCookie(null, "accessToken");
 };
 
 export default logout;
