@@ -14,7 +14,13 @@ const Footer = () => {
       </ul>
       <section className="flex flex-col space-y-5">
         {socialMediaInfo.map((item) => {
-          return <SocialMediaContact key={item.url} {...item} />;
+          return (
+            <SocialMediaContact
+              key={item.url}
+              {...item}
+              className={item.className}
+            />
+          );
         })}
       </section>
     </footer>
