@@ -1,15 +1,14 @@
 import axios from "axios";
 import { setCookie } from "nookies";
 import instance from "modules/apiInstance";
-export const login = async (data: {
-  identifier: string | undefined;
-  password: string | undefined;
-}) => {
+import useUser from "hooks/useUser";
+export const login = async (data: { identifier: string; password: string }) => {
   try {
     const res = await instance.post("/auth/local", data);
-    if (res.statusText === "OK") {
+    if (res.status === 200) {
       setCookie(null, "accessToken", res.data.jwt);
     }
+    return res;
   } catch {
     throw Error;
   }

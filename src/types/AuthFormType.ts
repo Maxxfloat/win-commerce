@@ -1,5 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
-import { RegisterOptions, UseFormRegisterReturn } from "react-hook-form";
+import {
+  RegisterOptions,
+  UseFormRegister,
+  UseFormRegisterReturn,
+} from "react-hook-form";
 
 export type LoginForm = {
   email: string;
@@ -10,15 +14,18 @@ export type RegisterForm = LoginForm & {
   confirmPassword: string;
 };
 
-export type RegisterType = {
-  register: (name: string, options?: RegisterOptions) => UseFormRegisterReturn;
-};
+// export type RegisterType<FormValues> = {
+//   register: UseFormRegister<FormValues>;
+//   // (name: string, options?: RegisterOptions) => UseFormRegisterReturn;
+// };
+// export type RegisterType<FormValues> = UseFormRegister<FormValues>;
 
-export type FormInputType = RegisterType & {
+export type FormInputType = {
+  // register: RegisterType<FormValues>;
+  register: UseFormRegisterReturn;
   label: string;
-  placeholder: string;
-  name: string;
-  registerOptions: RegisterOptions;
+  placeholder?: string;
+  // registerOptions: RegisterOptions;
   tabIndex?: number;
   type?: string;
   disabled?: boolean;

@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       })
   );
   const [user, setUser] = useState<Object | undefined>();
-  const [categories, setCategories] = useState<Object[] | undefined>();
+  // const [categories, setCategories] = useState<Object[] | undefined>();
   // const { data: user } = useQuery("user", getUser);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
         })
         .then((res) => {
-          if (res.statusText === "OK") {
+          if (res.statusText !== "ok") {
             destroyCookie(null, "accessToken");
             setUser(undefined);
             return null;

@@ -11,8 +11,8 @@ const Drawer: FC<{ router: NextRouter }> = () => {
     <div className="absolute right-0 z-50 w-32 p-3 text-lg font-bold bg-white border-2 border-black rounded-md top-14 ">
       <button
         onClick={() => {
-          logout();
           setUser(undefined);
+          logout();
         }}
       >
         Exit
