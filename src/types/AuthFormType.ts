@@ -6,8 +6,9 @@ import {
 } from "react-hook-form";
 
 export type LoginForm = {
-  email: string;
+  identifier: string;
   password: string;
+  csrfToken: string;
 };
 
 export type RegisterForm = LoginForm & {
@@ -26,6 +27,7 @@ export type FormInputType = {
   label: string;
   placeholder?: string;
   // registerOptions: RegisterOptions;
+  defaultValue?: string;
   tabIndex?: number;
   type?: string;
   disabled?: boolean;
