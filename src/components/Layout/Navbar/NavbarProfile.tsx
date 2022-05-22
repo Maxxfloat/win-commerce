@@ -1,22 +1,16 @@
 import logout from "modules/auth/logout";
 import context from "modules/context";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import { FC, useContext } from "react";
 import { BiUser } from "react-icons/bi";
 
 const Drawer: FC<{ router: NextRouter }> = () => {
-  const { setUser } = useContext(context);
   return (
     <div className="absolute right-0 z-50 w-32 p-3 text-lg font-bold bg-white border-2 border-black rounded-md top-14 ">
-      <button
-        onClick={() => {
-          setUser(undefined);
-          logout();
-        }}
-      >
-        Exit
-      </button>
+      {/* <Link href={`/dashboard`}></Link> */}
+      <button onClick={() => signOut()}>Exit</button>
     </div>
   );
 };
