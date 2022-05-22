@@ -24,10 +24,12 @@ const Product: FC<{ data: any[]; params: ParsedUrlQuery }> = ({
     // if (data[0])
   }, [data, router]);
 
+  // return <></>;
+
   const info = data && data[0]?.attributes;
-  const imageUrl =
-    info?.image.data.attributes.formats.large?.url ||
-    info?.image.data.attributes.formats.medium?.url;
+  const imageUrl = info.image.data.attributes.url;
+  // info?.image.data.attributes.formats.large?.url ||
+  // info?.image.data.attributes.formats.medium?.url;
   return (
     info && (
       <main className="justify-between p-6 lg:flex">
@@ -54,7 +56,7 @@ const Product: FC<{ data: any[]; params: ParsedUrlQuery }> = ({
               Order
             </button>
           </div>
-          <div className="w-full p-3 mt-20 border-2 border-gray-400 rounded-lg ">
+          <div className="w-full p-3 mt-20 rounded-lg ">
             <p className="mb-4 text-4xl font-bold">{info.name}</p>
             <p className="text-lg text-justify">{info.description}</p>
           </div>
