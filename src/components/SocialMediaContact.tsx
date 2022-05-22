@@ -1,19 +1,19 @@
 // Social Media Section
+import React, { CSSProperties, FC } from "react";
 import type { IconType } from "react-icons";
-
-import React, { FC } from "react";
 
 const SocialMediaContact: FC<{
   url: string;
   logo: IconType;
-  className?: string;
-}> = ({ url, logo: Logo, className }) => {
+  style?: CSSProperties;
+}> = ({ url, logo: Logo, style }) => {
   return (
     <a
       href={url}
       target="_blank"
       rel="noreferrer"
-      className={`${className} text-4xl`}
+      className={` text-4xl `}
+      style={style}
     >
       <Logo />
     </a>
