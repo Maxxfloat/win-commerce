@@ -13,8 +13,7 @@ const SocialMediaContact: FC<{
       href={url}
       target="_blank"
       rel="noreferrer"
-      className={`${className} 
-    text-4xl  `}
+      className={`${className} text-4xl`}
     >
       <Logo />
     </a>
