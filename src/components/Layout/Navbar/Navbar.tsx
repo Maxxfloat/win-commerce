@@ -11,12 +11,17 @@ import context from "modules/context";
 import SmallScreenSearchPopup from "./SmallScreenSearchPopup";
 import pages from "utils/pages";
 import NavbarTab from "./NavbarTab";
+import { useSession } from "modules/nextAuth-reactQuery";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [searchPageUp, setSearchPageUp] = useState<boolean>(false);
   // const { data: resData }: { data: any } = useQuery("user");
-  const { user } = useContext(context);
+
+  const [session, loading] = useSession({
+    required: false,
+  });
+
   return (
     <header className="w-full px-5 py-2 space-y-2 bg-white ">
       <nav className="flex justify-center lg:hidden">
@@ -38,7 +43,7 @@ const Navbar = () => {
             <NavbarSearchField />
           </div>
         </div>
-        {user ? <NavbarProfile /> : <SigninBtn />}
+        {session ? <NavbarProfile /> : <SigninBtn />}
         <NavbarCart />
       </div>
       <div className="flex items-center gap-3 p-1 mx-5 border-t-2 border-gray-300">
