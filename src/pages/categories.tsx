@@ -17,30 +17,27 @@ const Categories: FC = () => {
           info.thumbnail?.data?.attributes.formats.medium?.url ||
           info.thumbnail?.data?.attributes.formats.small.url;
         return (
-          <>
-            <Link
-              href={{
-                pathname: "/products",
-                query: { category: info.slug },
-              }}
-              key={info.slug}
-            >
-              <a className="flex flex-col justify-center border-2 border-gray-600">
-                <Image
-                  src={imageUrl}
-                  alt={info.name}
-                  width={"90%"}
-                  height={"90%"}
-                  // className="aspect-square"
-                  layout="responsive"
-                />
-                <span className="py-3 font-bold text-center">{info.name}</span>
-              </a>
-            </Link>
-          </>
+          <Link
+            href={{
+              pathname: "/products",
+              query: { category: info.slug },
+            }}
+            key={info.slug}
+          >
+            <a className="flex flex-col justify-center border-2 border-gray-600">
+              <Image
+                src={imageUrl}
+                alt={info.name}
+                width={"90%"}
+                height={"90%"}
+                // className="aspect-square"
+                layout="responsive"
+              />
+              <span className="py-3 font-bold text-center">{info.name}</span>
+            </a>
+          </Link>
         );
       })}
-      <div className="w-full h-full">lkjlkjh</div>
     </main>
   );
 };
