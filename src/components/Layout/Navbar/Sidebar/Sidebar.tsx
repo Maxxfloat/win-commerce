@@ -73,13 +73,7 @@ const Sidebar: FC<SidebarType> = ({ sidebarOpen, setSidebarOpen }) => {
             </ul>
             <div className="flex justify-center gap-5 mt-20 mb-10">
               {socialMediaInfo.map((item) => {
-                return (
-                  <SocialMediaContact
-                    key={item.url}
-                    {...item}
-                    className={item.className}
-                  />
-                );
+                return <SocialMediaContact key={item.url} {...item} />;
               })}
             </div>
           </div>
