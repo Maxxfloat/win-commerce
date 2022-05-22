@@ -10,7 +10,6 @@ const SpecialOfferWraper = () => {
       {data?.map((product) => {
         const info = product.attributes;
         const imageUrl = info.image?.data?.attributes.formats.medium.url;
-        console.log(imageUrl);
         return (
           <SpecialOffer
             key={info.name}
