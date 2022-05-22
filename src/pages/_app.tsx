@@ -15,24 +15,7 @@ import instance from "modules/apiInstance";
 import "swiper/css";
 import { useEffect, useState } from "react";
 
-// const getUser = async () => {
-//   const { accessToken: token } = parseCookies();
-//   if (token) {
-//     const res = await instance.get(`/users/me`, {
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//     if (res.status === 200) {
-//       destroyCookie(null, "accessToken");
-//       return null;
-//     }
-//     const user = await res.data;
-//     return user;
-//   }
-// };
-
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: pageProps }: AppProps) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
