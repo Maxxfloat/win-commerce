@@ -8,7 +8,12 @@ const LinkBtn: FC<{ link: string; src: string; categoryName: string }> = ({
   categoryName,
 }) => {
   return (
-    <Link href={`categories/${link}`}>
+    <Link
+      href={{
+        pathname: "/products",
+        query: { category: link },
+      }}
+    >
       <a className="flex flex-col justify-center ">
         <div className="relative h-[80px] w-[80px]">
           <Image
