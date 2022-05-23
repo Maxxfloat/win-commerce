@@ -22,7 +22,7 @@ const Sidebar: FC<SidebarType> = ({ sidebarOpen, setSidebarOpen }) => {
     getCategories
   );
   return (
-    <div className="absolute z-10 lg:hidden">
+    <div className="absolute z-20 lg:hidden">
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-10 h-screen bg-gray-300 opacity-50"
