@@ -1,15 +1,13 @@
 import qs from "qs";
 import get from "modules/get";
 
-const search = async (input: string) => {
-  if (input)
-    if (input?.length < 3) {
-      return null;
-    }
+const search = async (input: string): Promise<any[] | null> => {
+  if (input.length < 2) return [];
   const query = qs.stringify(
     {
+      populate: "*",
       filters: {
-        $containsi: input,
+        name: { $containsi: input },
       },
     },
     { encodeValuesOnly: true }
