@@ -25,9 +25,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="">
-        {/* <div className="h-48 text-white bg-black"></div> */}
         <Slider />
-        {/* <div title="categories" className="bg-yellow-500 h-11"></div> */}
         <div
           id="CategorySection"
           className="flex items-center justify-center h-48 space-x-3 mt-9 md:space-x-4 lg:space-x-5"
@@ -35,9 +33,11 @@ const Home: NextPage = () => {
           <CategorySection />
         </div>
         {typeof window !== "undefined" && <HomeSwiper />}
-        <div className="flex flex-col items-center justify-center mt-20">
-          <span className="text-3xl font-bold lg:text-7xl">Special Offer</span>
-          <div className="flex flex-col items-center justify-center my-11 lg:flex-row space-y-7 lg:space-y-0 lg:space-x-32">
+        <div className="mt-10 h-[40rem] flex flex-col">
+          <span className="block text-3xl font-bold text-center lg:text-7xl">
+            Special Offer
+          </span>
+          <div className="grid grid-cols-1 px-10 lg:grid-cols-2 grow my-11 gap-7 lg:gap-32 ">
             <SpecialOfferWraper />
           </div>
         </div>
