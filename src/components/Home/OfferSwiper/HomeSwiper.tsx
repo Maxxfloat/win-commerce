@@ -53,7 +53,7 @@ const HomeSwiper = () => {
       </Swiper>
 
       <div className="w-20" />
-      <div className="absolute z-50 overflow-visible right-2 lg:right-0">
+      <div className="absolute z-10 overflow-visible right-2 lg:right-0">
         <NextBtn swiper={navSwiper} />
       </div>
     </div>
