@@ -7,8 +7,7 @@ import SidebarToggle from "./Sidebar/SidebarToggle";
 import { useQuery } from "react-query";
 import Logo from "../Logo";
 import SigninBtn from "./SigninBtn";
-import context from "modules/context";
-import SmallScreenSearchPopup from "./SmallScreenSearchPopup";
+import SearchPopup from "./SearchPopup";
 import pages from "utils/pages";
 import NavbarTab from "./NavbarTab";
 import { useSession } from "modules/nextAuth-reactQuery";
@@ -23,15 +22,15 @@ const Navbar = () => {
   });
 
   return (
-    <header className="w-full px-5 py-2 space-y-2 bg-white ">
-      <nav className="flex justify-center lg:hidden">
+    <header className="w-full gap-2 px-5 py-2 bg-white ">
+      <nav className="flex justify-center mb-2 lg:hidden">
         <div className="absolute mr-20 left-5 top-2">
           <SidebarToggle setSidebarOpen={setSidebarOpen} />
         </div>
         <Logo />
       </nav>
-      <div className="h-[2px] bg-gray-200 lg:hidden" />
-      <div className="flex justify-center py-2 space-x-3 lg:justify-start ">
+      {/* <div className="h-[2px] bg-gray-200 lg:hidden" /> */}
+      <div className="flex justify-center gap-3 py-2 my-1 border-t-2 border-gray-200 lg:justify-start">
         <div className="items-center justify-center hidden w-28 lg:flex">
           <Logo />
         </div>
@@ -46,7 +45,7 @@ const Navbar = () => {
         {session ? <NavbarProfile /> : <SigninBtn />}
         <NavbarCart />
       </div>
-      <div className="flex items-center gap-3 p-1 mx-5 border-t-2 border-gray-300">
+      <div className="flex items-center gap-3 p-1 px-5 border-t-2 border-gray-200">
         {pages.map((page) => {
           return (
             <NavbarTab
@@ -58,7 +57,7 @@ const Navbar = () => {
         })}
       </div>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <SmallScreenSearchPopup
+      <SearchPopup
         searchPageUp={searchPageUp}
         setSearchPageUp={setSearchPageUp}
       />
