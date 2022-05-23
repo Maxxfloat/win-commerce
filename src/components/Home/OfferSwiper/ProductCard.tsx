@@ -12,16 +12,25 @@ const ProductCard: FC<{
 }> = ({ href, totalPrice, prevPrice, offPercent, src, alt }) => {
   return (
     <Link href={href} passHref>
-      <div className="flex flex-col items-center justify-center w-full h-64 bg-white">
-        <Image src={src} alt={alt} width={"130px"} height={"130px"} />
-        <div className="flex items-center py-3 space-x-3">
+      <a className="flex flex-col w-full h-64 bg-white">
+        <Image
+          src={src}
+          alt={alt}
+          width={"100%"}
+          height={"100%"}
+          className="aspect-square"
+          layout="responsive"
+        />
+        <div className="flex items-center justify-center py-3 space-x-3">
           <strong>$ {totalPrice}</strong>
           <strong className="px-2 py-1 text-white bg-red-600 rounded-l-full rounded-r-full">
             {offPercent}%
           </strong>
         </div>
-        <del className="text-sm font-semibold text-gray-400">{prevPrice}</del>
-      </div>
+        <del className="block text-sm font-semibold text-center text-gray-400">
+          {prevPrice}
+        </del>
+      </a>
     </Link>
   );
 };
