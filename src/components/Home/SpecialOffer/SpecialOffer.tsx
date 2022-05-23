@@ -10,12 +10,14 @@ const SpecialOffer: FC<{
 }> = ({ link, price, src, name }) => {
   return (
     <Link href={`/${link}`}>
-      <a className="flex flex-col items-center justify-center p-5 space-y-4 border-2 border-gray-400 rounded-md ">
-        <div className="relative h-56 w-80">
-          <Image src={src} alt={name} layout="fill" className="rounded-3xl" />
+      <a className="flex flex-col gap-5 p-3 border-2 border-gray-400 rounded-md ">
+        <div className="relative grow">
+          <Image src={src} alt={name} layout="fill" className="rounded-md" />
         </div>
-        <p className="text-3xl font-bold">{name}</p>
-        <p className="text-xl font-semibold text-gray-700">{price}</p>
+        <div className="text-center">
+          <p className="mb-2 text-3xl font-bold">{name}</p>
+          <p className="text-xl font-semibold text-gray-700">{price}</p>
+        </div>
       </a>
     </Link>
   );
