@@ -21,7 +21,6 @@ export default NextAuth({
         //   return bb;
         // }
         // -----------------
-        console.log("back res: ", res);
         if (res.statusText === "OK") {
           return res.data.user;
         }
@@ -54,9 +53,9 @@ export default NextAuth({
       return baseUrl;
     },
   },
-  // pages: {
-  //   signIn: "/auth/login",
-  // },
+  pages: {
+    error: "/auth/error",
+  },
   session: {
     maxAge: 15 * 24 * 60 * 60,
   },
