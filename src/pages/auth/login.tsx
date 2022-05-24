@@ -1,8 +1,14 @@
-import { useEffect, FC } from "react";
-import { GetServerSidePropsContext } from "next";
+import { FC } from "react";
+import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { getCsrfToken, signIn, signOut } from "next-auth/react";
+import {
+  getCsrfToken,
+  getProviders,
+  getSession,
+  signIn,
+} from "next-auth/react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 import { useSession } from "modules/nextAuth-reactQuery";
 import { login } from "modules/auth/login";
@@ -10,34 +16,27 @@ import Logo from "components/Layout/Logo";
 import Field from "components/AuthForms/Field";
 import { LoginForm } from "types/AuthFormType";
 import { useMutation } from "react-query";
-import useServerRefresher from "hooks/useServerRefresh";
 
-const Login: FC<{ csrfToken: string | undefined }> = ({ csrfToken }) => {
+const Login: FC = () => {
   const router = useRouter();
   const { mutate, isLoading, isSuccess, data } = useMutation(
-    (data: LoginForm) => login(data),
-    {
-      onSuccess: () => router.reload(),
-      // useServerRefresher(),
-    }
+    (v: LoginForm) =>
+      signIn("login", {
+        ...v,
+        callbackUrl: `${window.location.origin}/auth/login`,
+        // redirect: false,
+      })
+    // {
+    //   onSuccess: () => router.reload(),
+    // }
   );
 
   console.log(data);
   const submitHandler: SubmitHandler<LoginForm> = (value) => {
     mutate(value);
   };
-  const [session, loading] = useSession({
-    // required: true,
-    redirectTo: "/",
-    queryConfig: {
-      staleTime: 60 * 1000 * 60 * 3, // 3 hours
-      refetchInterval: 60 * 1000 * 5, // 5 minutes
-    },
-  });
-  // useEffect(() => {
-  //   if (isSuccess) console.log(loading);
-  //   console.log("session: ", session);
-  // }, [isSuccess, loading, session]);
+
+  const [session, loading] = useSession();
 
   const {
     register,
@@ -45,9 +44,16 @@ const Login: FC<{ csrfToken: string | undefined }> = ({ csrfToken }) => {
     formState: { errors },
   } = useForm<LoginForm>();
 
+  if (isLoading || isSuccess)
+    return (
+      <div className="flex items-center justify-center h-[80vh]">
+        <AiOutlineLoading3Quarters className="w-24 h-24 animate-spin" />
+      </div>
+    );
+
   return (
     <>
-      <main className="flex items-center justify-center h-screen">
+      <main className="flex items-center justify-center my-10 lg:h-auto lg:my-32">
         <div className="flex w-full mx-5 flex-col justify-center items-center sm:border-[1px] sm:px-7 sm:py-9 rounded-lg sm:w-96 md-5">
           <Logo />
           <span className="w-full text-2xl font-bold ">Login</span>
@@ -76,11 +82,6 @@ const Login: FC<{ csrfToken: string | undefined }> = ({ csrfToken }) => {
             >
               Login
             </button>
-            <input
-              type="hidden"
-              defaultValue={csrfToken}
-              {...register("csrfToken")}
-            />
           </form>
         </div>
       </main>
@@ -88,11 +89,19 @@ const Login: FC<{ csrfToken: string | undefined }> = ({ csrfToken }) => {
   );
 };
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getServerSideProps(context: NextPageContext) {
+  const session = await getSession({ req: context.req });
+  if (session?.user) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+  const providers = await getProviders();
   return {
-    props: {
-      csrfToken: await getCsrfToken(context),
-    },
+    props: { providers },
   };
 }
 
