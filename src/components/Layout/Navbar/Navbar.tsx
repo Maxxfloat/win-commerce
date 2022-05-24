@@ -30,7 +30,7 @@ const Navbar = () => {
         <Logo />
       </nav>
       {/* <div className="h-[2px] bg-gray-200 lg:hidden" /> */}
-      <div className="flex justify-center gap-3 py-2 my-1 border-t-2 border-gray-200 lg:justify-start">
+      <div className="flex justify-center gap-3 py-2 my-1 border-t-2 border-gray-200 lg:border-none lg:justify-start">
         <div className="items-center justify-center hidden w-28 lg:flex">
           <Logo />
         </div>
