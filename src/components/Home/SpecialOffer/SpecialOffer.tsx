@@ -9,7 +9,7 @@ const SpecialOffer: FC<{
   name: string;
 }> = ({ link, price, src, name }) => {
   return (
-    <Link href={`/${link}`}>
+    <Link href={`/products/${link}`}>
       <a className="flex flex-col gap-5 p-3 border-2 border-gray-400 rounded-md ">
         <div className="relative grow">
           <Image src={src} alt={name} layout="fill" className="rounded-md" />
