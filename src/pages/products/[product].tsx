@@ -35,7 +35,12 @@ const Product: FC<{ data: any[]; params: ParsedUrlQuery }> = ({
       <main className="justify-between p-6 lg:flex">
         <article className="w-full p-2 mb-10 border-2 border-gray-400 rounded-lg lg:w-1/2 lg:h-1/2 aspect-square">
           <div className="relative w-full h-full ">
-            <Image src={imageUrl} layout="fill" alt={info.name} />
+            <Image
+              src={imageUrl}
+              layout="fill"
+              alt={info.name}
+              priority={true}
+            />
           </div>
         </article>
         <article className="flex flex-col lg:h-full lg:w-1/2 lg:p-10">
