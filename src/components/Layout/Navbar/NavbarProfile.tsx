@@ -47,7 +47,6 @@ const NavbarProfile = () => {
   const [session, loading] = useSession();
 
   const user = session.user;
-  console.log("user: ", user);
 
   return (
     <>
@@ -56,7 +55,6 @@ const NavbarProfile = () => {
         className="relative flex items-center justify-center px-3 py-2 text-3xl text-center bg-white rounded-md shadow-md md:text-4xl shadow-gray-300 w-14"
         onClick={() => {
           setDrawerOpen((v) => !v);
-          console.log(drawerOpen);
         }}
       >
         <BiUser />

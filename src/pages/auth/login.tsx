@@ -31,7 +31,6 @@ const Login: FC = () => {
     // }
   );
 
-  console.log(data);
   const submitHandler: SubmitHandler<LoginForm> = (value) => {
     mutate(value);
   };

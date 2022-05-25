@@ -42,7 +42,6 @@ export default NextAuth({
     async session({ session, token }) {
       session.user = token.user as any;
       session.accessToken = token.accessToken;
-      console.log("back session: ", session);
       return session;
     },
     async redirect({ url, baseUrl }) {
