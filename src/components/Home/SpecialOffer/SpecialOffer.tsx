@@ -11,7 +11,7 @@ const SpecialOffer: FC<{
   return (
     <Link href={`/products/${link}`}>
       <a className="flex flex-col gap-5 p-3 border-2 border-gray-400 rounded-md ">
-        <div className="relative grow">
+        <div className="relative grow aspect-square">
           <Image src={src} alt={name} layout="fill" className="rounded-md" />
         </div>
         <div className="text-center">

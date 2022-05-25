@@ -33,11 +33,11 @@ const Home: NextPage = () => {
           <CategorySection />
         </div>
         {typeof window !== "undefined" && <HomeSwiper />}
-        <div className="mt-10 h-[40rem] flex flex-col">
+        <div className="flex flex-col mt-10 h-fit">
           <span className="block text-3xl font-bold text-center lg:text-7xl">
             Special Offer
           </span>
-          <div className="grid grid-cols-1 px-10 lg:grid-cols-2 grow my-11 gap-7 lg:gap-32 ">
+          <div className="grid grid-cols-1 px-3 h-fit lg:px-6 lg:grid-cols-2 grow my-11 gap-7 lg:gap-32 ">
             <SpecialOfferWraper />
           </div>
         </div>
