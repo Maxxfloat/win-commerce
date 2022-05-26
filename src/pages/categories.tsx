@@ -10,7 +10,7 @@ const Categories: FC = () => {
     getCategories
   );
   return (
-    <main className="grid grid-cols-4 gap-3 p-6">
+    <main className="grid grid-cols-1 gap-3 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {data?.map((category, index) => {
         const info = category.attributes;
         const imageUrl =
