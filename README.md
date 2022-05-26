@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Win Commerce
 
-## Getting Started
+Hi this is a responsive e-commerce web app project
 
-First, run the development server:
+## Packages
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Nextjs
+- Typescript
+- Tailwindcss
+- React-Query
+- Next-Auth
+- Axios
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## So
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+It's a simple e-commerce web app with a Strapi backend for resumes.
+with features as:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1.  Search bar
+2.  Sidebar
+3.  Profile
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+so I had not put too much time into it
 
-## Learn More
+## Images
 
-To learn more about Next.js, take a look at the following resources:
+![enter image description here](https://i.ibb.co/7SrC7G8/win-commerce.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![enter image description here](https://i.ibb.co/StCsMpJ/win-commerce-3.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![enter image description here](https://i.ibb.co/nBJMMvM/win-commerce-2.png)
 
-## Deploy on Vercel
+![enter image description here](https://i.ibb.co/MVtnxbz/win-commerce-4.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![enter image description here](https://i.ibb.co/096qFsB/win-commerce-5.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![enter image description here](https://i.ibb.co/Fq733TZ/win-commerce-phone-2.png)
+
+![enter image description here](https://i.ibb.co/GRKhZ7d/win-commerce-phone-3.png)
+
+![enter image description here](https://i.ibb.co/k3XMgXm/win-commerce-phone-5.png)
+
+![enter image description here](https://i.ibb.co/xFFDrRJ/win-commerce-phone-6.png)
+
+![enter image description here](https://i.ibb.co/zmpZMYH/win-commerce-phone-7.png)
