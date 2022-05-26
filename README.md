@@ -20,8 +20,6 @@ with features as:
 2.  Sidebar
 3.  Profile
 
-so I had not put too much time into it
-
 ## Images
 
 ![enter image description here](https://i.ibb.co/7SrC7G8/win-commerce.png)
