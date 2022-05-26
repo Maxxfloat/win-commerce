@@ -32,8 +32,6 @@ so I had not put too much time into it
 
 ![enter image description here](https://i.ibb.co/MVtnxbz/win-commerce-4.png)
 
-![enter image description here](https://i.ibb.co/096qFsB/win-commerce-5.png)
-
 ![enter image description here](https://i.ibb.co/Fq733TZ/win-commerce-phone-2.png)
 
 ![enter image description here](https://i.ibb.co/GRKhZ7d/win-commerce-phone-3.png)
