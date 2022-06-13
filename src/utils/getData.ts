@@ -65,7 +65,6 @@ export const getCars = async () => {
 
 export const getProducts = async (
   query: string = qs.stringify({ populate: "*" }, { encodeValuesOnly: true })
-  // query?: string
 ) => {
   return get(`/products?${query}`).then((res) => res.data);
 };

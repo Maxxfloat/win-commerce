@@ -1,41 +1,25 @@
 import { FC } from "react";
 import { NextPageContext } from "next";
-import { useRouter } from "next/router";
 import { SubmitHandler, useForm } from "react-hook-form";
-import {
-  getCsrfToken,
-  getProviders,
-  getSession,
-  signIn,
-} from "next-auth/react";
+import { getProviders, getSession, signIn } from "next-auth/react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-import { useSession } from "modules/nextAuth-reactQuery";
-import { login } from "modules/auth/login";
 import Logo from "components/Layout/Logo";
 import Field from "components/AuthForms/Field";
 import { LoginForm } from "types/AuthFormType";
 import { useMutation } from "react-query";
 
 const Login: FC = () => {
-  const router = useRouter();
-  const { mutate, isLoading, isSuccess, data } = useMutation(
-    (v: LoginForm) =>
-      signIn("login", {
-        ...v,
-        callbackUrl: `${window.location.origin}/auth/login`,
-        // redirect: false,
-      })
-    // {
-    //   onSuccess: () => router.reload(),
-    // }
+  const { mutate, isLoading, isSuccess } = useMutation((v: LoginForm) =>
+    signIn("login", {
+      ...v,
+      callbackUrl: `${window.location.origin}/auth/login`,
+    })
   );
 
   const submitHandler: SubmitHandler<LoginForm> = (value) => {
     mutate(value);
   };
-
-  const [session, loading] = useSession();
 
   const {
     register,

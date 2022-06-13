@@ -1,5 +1,4 @@
-import React, { ReactElement } from "react";
-import { useQuery } from "react-query";
+import React from "react";
 import Logo from "../Logo";
 import SocialMediaContact from "../../SocialMediaContact";
 import FooterNav from "./FooterNav";

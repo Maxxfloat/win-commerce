@@ -1,9 +1,8 @@
-import React, { Fragment } from "react";
-import { useSwiper, Swiper, SwiperSlide, SwiperProps } from "swiper/react";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import SliderNavBtns from "./SliderNavBtns";
 import { useQuery } from "react-query";
-import Image from "next/image";
 import { getSlider } from "utils/getData";
 import Link from "next/link";
 
@@ -23,20 +22,22 @@ const Slider = () => {
       <div className="absolute z-10 bottom-6 right-10">
         <SliderNavBtns />
       </div>
-      {data?.map((slide) => (
-        <SwiperSlide key={slide.attributes.name}>
-          <Link
-            href={`/products/${slide.attributes.product.data.attributes.slug}`}
-          >
-            <a
-              className="relative block h-64 bg-contain lg:h-80"
-              style={{
-                backgroundImage: `url(${slide.attributes.img_name.data.attributes.url})`,
-              }}
-            ></a>
-          </Link>
-        </SwiperSlide>
-      ))}
+      {data?.map((slide) => {
+        return (
+          <SwiperSlide key={slide.attributes.name}>
+            <Link
+              href={`/products/${slide.attributes.product.data.attributes.slug}`}
+            >
+              <a
+                className="relative block h-64 bg-contain lg:h-80"
+                style={{
+                  backgroundImage: `url(${slide.attributes.img_name.data.attributes.url})`,
+                }}
+              ></a>
+            </Link>
+          </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
 };

@@ -1,8 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useState } from "react";
-import { UseMutateFunction, useMutation, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { GrClose } from "react-icons/gr";
 import search from "utils/search";
-import { getProduct } from "utils/getData";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,8 +14,6 @@ const SearchPopup: FC<{
   const { data, isLoading } = useQuery(["search", inputValue], () =>
     search(inputValue)
   );
-
-  // const {data ,mutation} : UseMutateFunction<any[]> = useMutation<any[]>((value : string) => getProduct(value))
 
   return (
     <main
@@ -41,7 +38,6 @@ const SearchPopup: FC<{
             setInputValue(v.target.value);
           }}
           value={inputValue}
-          // defaultValue={inputValue}
         />
         <button
           onClick={() => setInputValue("")}

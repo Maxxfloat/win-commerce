@@ -1,12 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout/Layout";
-import {
-  QueryClientProvider,
-  Hydrate,
-  QueryClient,
-  useQuery,
-} from "react-query";
+import { QueryClientProvider, Hydrate, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import Context from "modules/context";
 import { parseCookies, destroyCookie } from "nookies";
@@ -27,8 +22,6 @@ function MyApp({ Component, pageProps: pageProps }: AppProps) {
       })
   );
   const [user, setUser] = useState<Object | undefined>();
-  // const [categories, setCategories] = useState<Object[] | undefined>();
-  // const { data: user } = useQuery("user", getUser);
 
   useEffect(() => {
     const { accessToken: token } = parseCookies();

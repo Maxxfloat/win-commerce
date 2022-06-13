@@ -1,11 +1,9 @@
-import type { NextPage, GetStaticProps, GetServerSideProps } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient } from "react-query";
 import dynamic from "next/dynamic";
 import Slider from "components/Home/Slider/Slider";
 import { getSlider, getClocks, getCategories, getCars } from "utils/getData";
-// import SpecialOfferWraper from "components/Home/SpecialOffer/SpecialOfferWraper";
-// import HomeSwiper from "components/Home/OfferSwiper/HomeSwiper";
 
 const HomeSwiper = dynamic(
   () => import("../components/Home/OfferSwiper/HomeSwiper")

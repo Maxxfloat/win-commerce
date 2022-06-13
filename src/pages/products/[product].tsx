@@ -1,9 +1,9 @@
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import { FC, useEffect } from "react";
-import { dehydrate, QueriesResults, QueryClient, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { getProduct } from "utils/getData";
 
 const Product: FC<{ data: any[]; params: ParsedUrlQuery }> = ({
@@ -21,15 +21,10 @@ const Product: FC<{ data: any[]; params: ParsedUrlQuery }> = ({
     if (data === undefined) {
       router.push("/");
     }
-    // if (data[0])
   }, [data, router]);
-
-  // return <></>;
 
   const info = data && data[0]?.attributes;
   const imageUrl = info.image.data.attributes.url;
-  // info?.image.data.attributes.formats.large?.url ||
-  // info?.image.data.attributes.formats.medium?.url;
   return (
     info && (
       <main className="justify-between p-6 lg:flex">
@@ -76,14 +71,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     return {
       notFound: true,
     };
-  // const queryClient = new QueryClient();
-  //  (typeof params?.product);
-  // await queryClient.prefetchQuery(["product", params.product], () =>
-  //   getProduct(params?.product)
-  // );
-  // return {
-  //   props: { dehydratedState: dehydrate(queryClient) },
-  // };
   const data = await getProduct(params.product);
 
   if (data.length === 0) {

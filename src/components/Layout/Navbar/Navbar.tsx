@@ -1,10 +1,9 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import NavbarCart from "./NavbarCart";
 import NavbarProfile from "./NavbarProfile";
 import NavbarSearchField from "./NavbarSearchField";
 import Sidebar from "./Sidebar/Sidebar";
 import SidebarToggle from "./Sidebar/SidebarToggle";
-import { useQuery } from "react-query";
 import Logo from "../Logo";
 import SigninBtn from "./SigninBtn";
 import SearchPopup from "./SearchPopup";
@@ -15,9 +14,8 @@ import { useSession } from "modules/nextAuth-reactQuery";
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [searchPageUp, setSearchPageUp] = useState<boolean>(false);
-  // const { data: resData }: { data: any } = useQuery("user");
 
-  const [session, loading] = useSession({
+  const [session] = useSession({
     required: false,
   });
 
@@ -29,7 +27,6 @@ const Navbar = () => {
         </div>
         <Logo />
       </nav>
-      {/* <div className="h-[2px] bg-gray-200 lg:hidden" /> */}
       <div className="flex justify-center gap-3 py-2 my-1 border-t-2 border-gray-200 lg:border-none lg:justify-start">
         <div className="items-center justify-center hidden w-28 lg:flex">
           <Logo />

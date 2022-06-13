@@ -1,10 +1,7 @@
-import logout from "modules/auth/logout";
-import context from "modules/context";
 import { useSession } from "modules/nextAuth-reactQuery";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import { NextRouter, useRouter } from "next/router";
-import { FC, useContext, useState } from "react";
+import { FC, useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import { BsBoxArrowLeft } from "react-icons/bs";
@@ -42,15 +39,13 @@ const DrawerLink: FC<{ user: any }> = ({ user }) => {
 
 const NavbarProfile = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
-  const router = useRouter();
 
-  const [session, loading] = useSession();
+  const [session] = useSession();
 
   const user = session.user;
 
   return (
     <>
-      {/* <Link href={"/dashboard"}> */}
       <button
         className="relative flex items-center justify-center px-3 py-2 text-3xl text-center bg-white rounded-md shadow-md md:text-4xl shadow-gray-300 w-14"
         onClick={() => {
@@ -65,7 +60,6 @@ const NavbarProfile = () => {
           <DrawerLink user={user} />
         </div>
       </button>
-      {/* </Link> */}
     </>
   );
 };

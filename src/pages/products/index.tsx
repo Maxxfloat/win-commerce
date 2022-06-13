@@ -25,7 +25,6 @@ const Products = () => {
     () => getProducts(filters),
     { staleTime: 5 * 60 * 1000 }
   );
-  //   return <></>;
   return (
     <main>
       <article></article>
@@ -63,8 +62,6 @@ const Products = () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // let query: string;
-  // if (params?.category) {
   const query = qs.stringify(
     {
       populate: "*",
@@ -80,7 +77,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
   // }
   const queryClient = new QueryClient();
-  //   await queryClient.prefetchQuery("products", () => getProducts());
   await queryClient.prefetchQuery(["products", query], () =>
     getProducts(query)
   );

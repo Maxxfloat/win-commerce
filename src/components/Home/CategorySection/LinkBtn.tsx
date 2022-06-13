@@ -19,8 +19,6 @@ const LinkBtn: FC<{ link: string; src: string; categoryName: string }> = ({
           <Image
             src={src}
             alt={categoryName}
-            // width={80}
-            // height={80}
             layout="fill"
             className="rounded-full "
           />

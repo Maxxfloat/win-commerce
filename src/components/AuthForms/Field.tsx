@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import type { FormInputType, LoginForm } from "types/AuthFormType";
+import type { FormInputType } from "types/AuthFormType";
 const FormInput: FC<FormInputType> = ({
   label,
   register,

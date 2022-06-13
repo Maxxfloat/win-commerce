@@ -1,4 +1,4 @@
-import { FC, ReactChild, useEffect } from "react";
+import { FC, ReactChild } from "react";
 import Head from "next/head";
 
 const Page: FC<{ children: ReactChild; headTitle: string }> = ({

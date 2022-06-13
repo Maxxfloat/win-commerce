@@ -1,5 +1,5 @@
 import { Dispatch, FC, SetStateAction, useState } from "react";
-import { useQuery, UseQueryResult } from "react-query";
+import { useQuery } from "react-query";
 import SwiperType from "swiper";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { getClocks } from "utils/getData";

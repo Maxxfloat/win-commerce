@@ -30,7 +30,6 @@ const Categories: FC = () => {
                 alt={info.name}
                 width={"90%"}
                 height={"90%"}
-                // className="aspect-square"
                 layout="responsive"
               />
               <span className="py-3 font-bold text-center">{info.name}</span>

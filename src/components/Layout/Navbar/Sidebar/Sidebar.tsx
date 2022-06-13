@@ -1,11 +1,7 @@
-import Link from "next/link";
-import { FC, useState } from "react";
-import { BsInstagram } from "react-icons/bs";
-import { GrLinkedin } from "react-icons/gr";
+import { FC } from "react";
 import { useQuery } from "react-query";
 import { SidebarType } from "types/UseStateTypes";
 
-import get from "modules/get";
 import SidebarLink from "./SidebarLink";
 import pages from "utils/pages";
 import Logo from "components/Layout/Logo";
@@ -13,9 +9,6 @@ import SocialMediaContact from "components/SocialMediaContact";
 import socialMediaInfo from "utils/socialMediaInfo";
 import { getCategories } from "utils/getData";
 
-// const getCategories = () => {
-//   return get("/categories").then((res) => res.data);
-// };
 const Sidebar: FC<SidebarType> = ({ sidebarOpen, setSidebarOpen }) => {
   const { data }: { data: any[] | undefined } = useQuery(
     "categories",
@@ -82,23 +75,5 @@ const Sidebar: FC<SidebarType> = ({ sidebarOpen, setSidebarOpen }) => {
     </div>
   );
 };
-
-// export const SocialMendias: FC = () => (
-//   <div className="flex m-10 mt-auto space-x-3">
-//     <div
-//       className="p-[5px] text-3xl rounded-lg text-white "
-//       style={{
-//         backgroundImage:
-//           "radial-gradient(circle at 30% 107%, #fcef69 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)",
-//       }}
-//     >
-//       <BsInstagram />
-//     </div>
-//     <div className=" text-[2.4rem] rounded-lg text-[#0e76a8]">
-//       <GrLinkedin />
-//     </div>
-//     <div></div>
-//   </div>
-// );
 
 export default Sidebar;

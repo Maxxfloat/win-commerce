@@ -1,5 +1,4 @@
 import axios from "axios";
-import instance from "modules/apiInstance";
 import { LoginForm } from "types/AuthFormType";
 
 export const login = async (data: LoginForm) =>
